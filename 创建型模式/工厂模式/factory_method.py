@@ -6,7 +6,7 @@ import xml.etree.ElementTree as etree
 import json
 
 class JSONConnector:
-    '''类JSONConnector解析JSON文件'''
+    """类JSONConnector解析JSON文件"""
     def __init__(self, filepath):
         self.data = dict()
         with open(filepath, mode='r', encoding='utf-8') as f:
@@ -17,7 +17,7 @@ class JSONConnector:
         return self.data
 
 class XMLConnector:
-    '''类XMLConnector解析XML文件'''
+    """类XMLConnector解析XML文件"""
     def __init__(self, filepath):
         self.tree = etree.parse(filepath)
 
@@ -36,7 +36,7 @@ def connection_factory(filepath):
     return connector(filepath)
 
 def connect_to(filepath):
-    '''对工厂函数connection_factory的封装，加入异常处理机制'''
+    """对工厂函数connection_factory的封装，加入异常处理机制"""
     factory = None
     try:
     	factory = connection_factory(filepath)
